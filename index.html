@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alinus Abuke</title>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        color: #393E41;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    body {
+        background-color: #F6F7EB;
+    }
+
+    .navbar {
+        background-color: transparent;
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: right;
+        height: 10vh;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .navbar nav {
+        display: flex;
+        width: 50%;
+        align-items: stretch;
+    }
+
+    .navbar nav a {
+        background-color: #393E41;
+        ;
+        flex: 1;
+        text-align: center;
+        display: flex;
+        transition: padding 0.3s ease-in-out;
+    }
+
+    .navbar nav a:nth-child(1) {
+        border-bottom-left-radius: 20px;
+    }
+
+    .navbar nav a:hover {
+        background-color: #F6F7EB;
+        padding: 0px 30px;
+    }
+
+    .navbar nav a span {
+        margin: auto;
+        color: #F6F7EB;
+    }
+
+    .navbar nav a:hover span {
+        color: #393E41;
+    }
+
+    .fill {
+        display: flex;
+        height: 10vh;
+        background-color: #393E41;
+    }
+
+    .home {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5%;
+        height: 68vh
+            /* border: 1px solid black; */
+    }
+
+    .home * {
+        flex: 1;
+        /* border: 1px solid black; */
+        font-size: 100px;
+    }
+
+    .home .names {
+        display: grid;
+        grid-template: 1fr / 1fr;
+    }
+
+
+    .home .names * {
+        grid-row: 1;
+        grid-column: 1;
+        transition: opacity 0.3s ease-in-out;
+        margin: auto 0px;
+    }
+
+    .home .names .name {
+        font-size: 200px;
+        opacity: 1;
+    }
+
+    .home .names .ign {
+        font-size: 125px;
+        opacity: 0;
+    }
+
+    .home .names:hover .name {
+        opacity: 0;
+    }
+
+    .home .names:hover .ign {
+        opacity: 1;
+    }
+
+    .section {
+        margin-top: 5%;
+        padding: 5%;
+        border-top: 10vh solid #393E41;
+        min-height: 90vh;
+        /* border-radius: 1px solid black; */
+    }
+
+    .section h1 {
+        font-size: 60px;
+        font-weight: 600;
+    }
+
+    .section p {
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    .about .skills {
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(5, 20%);
+        margin: 50px 0px;
+    }
+
+    .about .skills figure {
+        font-size: 150px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: font-size 0.2s ease-in-out;
+        /* padding-bottom: 20%; */
+        /* border: 1px solid black; */
+    }
+
+    .about .skills figure:hover {
+        font-size: 100px;
+    }
+
+    .about .skills figure h1 {
+        font-size: 30px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .about .skills figure:hover h1 {
+        opacity: 1;
+    }
+
+    .stuff .grid {
+        display: grid;
+        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+        gap: 20px;
+        margin: 10px;
+    }
+
+    .stuff .grid div {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        /* border: 1px solid black; */
+    }
+
+    .stuff .grid div * {
+        padding: 3px 0px;
+    }
+
+    .stuff .grid div figure {
+        aspect-ratio: 1 / 1;
+        display: grid;
+        grid-template-rows: 1fr;
+        align-content: center;
+        transition: grid-template-rows 0.3s ease-in-out;
+    }
+
+    .stuff .grid div img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .stuff .grid div:hover figure {
+        grid-template-rows: 0fr;
+    }
+
+    .eye {
+        background-color: white;
+        display: flex;
+        aspect-ratio: 1/1;
+        animation: blink 3s ease-in-out infinite normal;
+        clip-path: ellipse(49% 39% at 50% 50%);
+    }
+
+    .shape {
+        background-color: #393E41;
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        flex: 0 0 auto;
+        display: flex;
+        clip-path: circle(50% at 50% 50%);
+        animation: wander 3s ease-in-out infinite normal;
+    }
+
+    .dot {
+        flex: 0 0 auto;
+        background-color: white;
+        width: 50px;
+        height: 50px;
+        margin: 0px 0px auto auto;
+        clip-path: circle(50% at 50% 50%);
+    }
+
+    @keyframes blink {
+        0% {
+            clip-path: ellipse(49% 39% at 50% 50%);
+        }
+
+        5% {
+            clip-path: ellipse(51% 0% at 51% 55%);
+        }
+        30% {
+            clip-path: ellipse(49% 39% at 50% 50%);
+        }
+    }
+
+    @keyframes wander {
+        25% {
+            transform: translate(0px, 0px);
+        }
+        
+        35% {
+            transform: translate(50px, -50px);
+        }
+        
+        50% {
+            transform: translate(-50px, 50px);
+        }
+        65% {
+            transform: translate(-50px, -50px);
+        }
+        80% {
+            transform: translate(50px, 50px);
+        }
+        95% {
+            transform: translate(0px, 0px);
+        }
+        
+    }
+
+</style>
+
+<body>
+    <header class="navbar">
+        <nav>
+            <a href="#home"><span>Home</span></a>
+            <a href="#about"><span>About Me</span></a>
+            <a href="#stuff"><span>My Stuff</span></a>
+            <a href="#contact"><span>Contact</span></a>
+        </nav>
+    </header>
+    <header class="fill" id="home"></header>
+
+    <main>
+        <section class="home" id="home">
+            <h1>Hi! I'm
+                <div class="names">
+                    <span class="name">Alinus</span>
+                    <span class="ign">Goodymind</span>
+                </div>
+            </h1>
+            <div class="eye">
+                <div class="shape">
+                    <div class="dot"></div>
+                </div>
+            </div>
+        </section>
+        <section class="about section" id="about">
+            <h1>About Me</h1>
+            <p>I do programming, game development, and a little bit of everything else. I live in Valenzuela and I love
+                it there. One of my
+                favorite quotes is from <a
+                    href="https://www.google.com/search?q=meet+the+robinsons&oq=meet+the+robinsons&gs_lcrp=EgZjaHJvbWUqDAgAEEUYOxixAxiABDIMCAAQRRg7GLEDGIAEMgcIARAAGIAEMgcIAhAAGIAEMgcIAxAAGIAEMgcIBBAAGIAEMgcIBRAAGIAEMgcIBhAAGIAEMgcIBxAAGIAE0gEIMTg2OWowajGoAgCwAgA&sourceid=chrome&ie=UTF-8">Meet
+                    the Robinsons-</a><i>"Keep Moving Forward".</i><br> If you'd like to know,
+                these are the stuff I dabble in:</p>
+            <div class="skills">
+                <figure><i class="devicon-r-plain"></i>
+                    <h1>R</h1>
+                </figure>
+                <figure><i class="devicon-csharp-plain"></i>
+                    <h1>C#</h1>
+                </figure>
+                <figure><i class="devicon-python-plain"></i>
+                    <h1>Python</h1>
+                </figure>
+                <figure><i class="devicon-java-plain"></i>
+                    <h1>Java</h1>
+                </figure>
+                <figure><i class="devicon-godot-plain"></i>
+                    <h1>Godot</h1>
+                </figure>
+                <figure style="grid-column: 2"><i class="devicon-html5-plain"></i>
+                    <h1>HTML</h1>
+                </figure>
+                <figure><i class="devicon-css3-plain"></i>
+                    <h1>CSS</h1>
+                </figure>
+                <figure><i class="devicon-arduino-plain"></i>
+                    <h1>Arduino</h1>
+                </figure>
+            </div>
+        </section>
+        <section class="stuff section" id="stuff">
+            <h1>My Stuff</h1>
+            <p>I started my techie journey just before I started 7th grade.
+                So I did a lot of stuff, most of which I'm too embarassed to share.
+            </p>
+            <div class="grid">
+                <div>
+                    <figure><img src="images\yfs.jpg" alt=""></figure>
+                    <h2>Young Founders Summit 2019</h2>
+                    <h3>Automatic Jeepney Cashier</h3>
+                </div>
+                <div>
+                    <figure><img src="images\rstp.jpg" alt=""></figure>
+                    <h2>Regional Science and Technology Fair 2019</h2>
+                    <h3>Automatic Vehicle Cashier</h3>
+                </div>
+                <div>
+                    <figure><img src="images\tgr.jpg" alt=""></figure>
+                    <h2>Tagisang Robotics 2019</h2>
+                </div>
+                <div>
+                    <figure><img src="images\gmtk.png" alt=""></figure>
+                    <h2>Form'r Glory</h2>
+                    <h3>GMTK Game Jam 2019</h3>
+                </div>
+                <div>
+                    <figure><img src="images\noi.png" alt=""></figure>
+                    <h2>National Olympiad in Informatics 2023</h2>
+                    <h3>Shortlisted Finalist</h3>
+                </div>
+                <div>
+                    <figure><img src="images\miguel.png" alt=""></figure>
+                    <h2>Miguel</h2>
+                    <h3>Short Visual Novel/Interactive Fiction</h3>
+                </div>
+                <div style="grid-column: 2">
+                    <figure><img src="images\admu.png" alt=""></figure>
+                    <h2>Ateneo ProgVar</h2>
+                </div>
+            </div>
+        </section>
+        <section class="contact section" id="contact">
+            <h1>Contact</h1>
+            <section class="email">
+                <h2>Email</h2>
+                <a href="mailto:alinus.abuke@student.ateneo.edu">alinus.abuke@student.ateneo.edu</a>
+                <a href="mailto:aabuke9@gmail.com">aabuke9@gmail.com</a>
+                <a href="mailto:alinus.abuke.320401@gmail.com">alinus.abuke.320401@gmail.com</a>
+            </section>
+            <section>
+                <h2>SMS</h2>
+                <a href="sms:0961385127">09613985127</a>
+            </section>
+        </section>
+    </main>
+    <footer>
+    </footer>
+</body>
+
+</html>
